@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'Course.apps.CourseConfig',
+    # 'CloudDisk.apps.ClouddiskConfig',
+    # 'Email.apps.EmailConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
