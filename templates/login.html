@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
-    <link rel="stylesheet" href="../../static/layui/css/layui.css">
-    <script src="../../static/layui/layui.js"></script>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script src="/static/layui/layui.js"></script>
 </head>
 <body>
+
+{% if error %}
+<div id="error" style="display: none" >{{ error }}</div>
+{% endif %}
+
 <div class="layui-header layui-container layui-bg-black">
     <i class="layui-icon layui-icon-release layui-layout-body" ></i>
 
@@ -29,7 +34,7 @@
             <a class="iconfont icon-touxiang layui-hide-xs" href="{% url 'Course:login' %}"></a>
         </li>
         <li class="layui-nav-item">
-            <a href="{% url 'Course:login' %}">登入</a>
+            <a href="{% url 'Course:login' %}">登录</a>
         </li>
         <li class="layui-nav-item">
             <a href="user/reg.html">注册</a>
@@ -59,6 +64,16 @@
         </div>
     </div>
 </form>
+
+<script>
+    {% if error %}
+    layui.use(['layer',], function () {
+        let $ = layui.jquery,
+            layer = layui.layer;
+        layer.msg($('#error').text());
+    });
+    {% endif %}
+</script>
 
 
 </body>
